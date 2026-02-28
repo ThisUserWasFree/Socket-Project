@@ -1,4 +1,5 @@
 package socketsender;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class main {
@@ -11,17 +12,18 @@ public class main {
         });
         getterThread.start();
         System.out.println("Started getter thread.");
-        while (true) { 
-            System.out.println("Waiting for messages...");
-            System.out.println(messagesinHolding);
-            try {
-                Thread.sleep(100); // check every 100ms
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        
+
+        while (true) {
             if (messagesinHolding.size() > 0) {
-                System.out.println(messagesinHolding);
-                //messagesinHolding.remove(0);
+                System.out.println(messagesinHolding.get(0));
+                messagesinHolding.remove(0);
+            }
+            try {
+                System.out.println("Press enter for next message...");
+                System.in.read(); // waits until enter is pressed
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
         
