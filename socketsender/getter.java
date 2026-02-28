@@ -1,7 +1,8 @@
+package socketsender;
 import java.io.*;
 import java.net.*;
 
-public class client {
+public class getter {
     public static void main(String[] args) {
         Thread serverThread = new Thread(() -> {//Seperate server lambda
             int port = 5000;//Port number :)
@@ -14,7 +15,9 @@ public class client {
                         System.out.println("Client connected: " + clientSocket.getInetAddress());//Say a new client has connected
                         String line;
                         while ((line = reader.readLine()) != null) {
-                            System.out.println("Received: " + line);//print the line of the stuff that was read from the buffer
+                            //print the line of the stuff that was read from the buffer
+                            main.addMessage(line);
+                            
                         }
                         System.out.println("Client disconnected.");//say bye!
                     }
