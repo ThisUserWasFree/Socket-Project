@@ -11,14 +11,13 @@ public class getter {
                 try (Socket clientSocket = serverSocket.accept(); //repeatedly accept new things 
                         BufferedReader reader = new BufferedReader( //add said thing to a buffer
                             new InputStreamReader(clientSocket.getInputStream()))) {//read the buffer of things
-                    System.out.println("Client connected: " + clientSocket.getInetAddress());//Say a new client has connected
+                    System.out.println("Loading Messages " + clientSocket.getInetAddress());//Say a new client has connected
                     String line;
                     while ((line = reader.readLine()) != null) {
                         //print the line of the stuff that was read from the buffer
                         main.addMessage(line);
                         
                     }
-                    System.out.println("Client disconnected.");//say bye!
                 }
             }
         } catch (IOException e) { //no connection

@@ -18,6 +18,8 @@ public class main {
             if (messagesinHolding.size() > 0) {
                 System.out.println(messagesinHolding.get(0));
                 messagesinHolding.remove(0);
+            } else {
+                System.out.println("No messages in holding.");
             }
             try {
                 System.out.println("Press enter for next message...");
